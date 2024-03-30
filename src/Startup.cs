@@ -7,6 +7,7 @@ using Soenneker.Utils.Dotnet.Registrars;
 using Soenneker.Utils.File.Registrars;
 using Soenneker.Utils.FileSync.Registrars;
 using Soenneker.Utils.HttpClientCache.Registrar;
+using Soenneker.Utils.SHA3.Registrars;
 
 namespace Soenneker.Runners.NuGet;
 
@@ -28,6 +29,7 @@ public class Startup
         services.AddFileUtilAsScoped();
         services.AddFileUtilSyncAsScoped();
         services.AddGitUtilAsScoped();
+        services.AddSha3UtilAsScoped();
         services.AddScoped<IDownloadUtil, DownloadUtil>();
         services.AddScoped<IFileOperationsUtil, FileOperationsUtil>();
         services.AddDotnetNuGetUtilAsScoped();
