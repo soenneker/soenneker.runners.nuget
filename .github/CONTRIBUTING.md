@@ -1,4 +1,4 @@
-# Contributing to Soenneker.Runners.NuGet
+﻿# Contributing to Soenneker.Runners.NuGet
 
 We're excited that you're interested in contributing!
 
