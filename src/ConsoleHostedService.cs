@@ -40,7 +40,8 @@ public class ConsoleHostedService : IHostedService
                 {
                     string? filePath = await _fileDownloadUtil.Download("https://dist.nuget.org/win-x86-commandline/latest/nuget.exe", fileExtension: ".exe", cancellationToken: cancellationToken);
 
-                    await _runnersManager.PushIfChangesNeeded(filePath, Constants.FileName, Constants.Library, $"https://github.com/soenneker/{Constants.Library}", cancellationToken);
+                    await _runnersManager.PushIfChangesNeeded(filePath, Constants.FileName, Constants.Library, $"https://github.com/soenneker/{Constants.Library}", 
+                        false, cancellationToken);
 
                     _logger.LogInformation("Complete!");
 
