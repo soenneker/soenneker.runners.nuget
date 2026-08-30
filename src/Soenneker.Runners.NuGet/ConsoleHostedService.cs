@@ -48,6 +48,9 @@ public class ConsoleHostedService : IHostedService
                 {
                     string? filePath = await _fileDownloadUtil.Download("https://dist.nuget.org/win-x86-commandline/latest/nuget.exe", fileExtension: ".exe", cancellationToken: cancellationToken);
 
+                    if (filePath is null)
+                        throw new InvalidOperationException("The NuGet CLI could not be downloaded.");
+
                     await _runnersManager.PushIfChangesNeeded(filePath, Constants.FileName, Constants.Library, $"https://github.com/soenneker/{Constants.Library}", 
                         false, cancellationToken);
 
